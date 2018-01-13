@@ -4,7 +4,10 @@
   "description": "Typescript version of library management tutorial of MDN, saved to mysql",
   "main": "index.js",
   "scripts": {
-    "test": "npx jest"
+    "start": "node dist/server.js",
+    "tsc": "node_modules/.bin/tsc -d",
+    "test": "npx jest",
+    "lint": "tslint --fix src/**/*.ts"
   },
   "repository": {
     "type": "git",
@@ -20,12 +23,15 @@
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.18.2",
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "mysql2": "^1.5.1",
+    "sequelize": "^4.31.0"
   },
   "devDependencies": {
     "@types/body-parser": "^1.16.8",
     "@types/dotenv": "^4.0.2",
     "@types/express": "^4.11.0",
+    "@types/sequelize": "^4.27.2",
     "eslint": "^4.15.0",
     "tslint": "^5.9.1",
     "typescript": "^2.6.2"
