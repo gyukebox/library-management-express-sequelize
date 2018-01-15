@@ -1,7 +1,24 @@
 import * as Sequelize from "sequelize";
 import {sequelize} from "../server";
 
-export const Author = sequelize.define("author", {
+import {Book} from "./book";
+
+export interface IAuthorAddModel {
+  first_name: string;
+  last_name: string;
+  date_of_birth?: string;
+  date_of_death?: string;
+}
+
+export interface IAuthorModel extends Sequelize.Model<IAuthorModel, IAuthorAddModel> {
+  id: number;
+  first_name: string;
+  last_name: string;
+  date_of_birth?: string;
+  date_of_death?: string;
+}
+
+export const Author = sequelize.define<IAuthorModel, IAuthorAddModel>("author", {
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
@@ -18,3 +35,5 @@ export const Author = sequelize.define("author", {
     allowNull: true,
   },
 });
+
+Author.belongsToMany(Book, {through: "bookAuthor"});

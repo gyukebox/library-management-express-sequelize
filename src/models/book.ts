@@ -1,15 +1,33 @@
 import * as Sequelize from "sequelize";
 import {sequelize} from "../server";
 
-export const Book = sequelize.define("book", {
+import {Author} from "./author";
+import {BookInstance} from "./bookinstance";
+import {Genre} from "./genre";
+
+export interface IBookAddModel {
+  title: string;
+  summary: string;
+}
+
+export interface IBookModel extends Sequelize.Model<IBookModel, IBookAddModel> {
+  id: number;
+  title: string;
+  summary: string;
+  isbn: string;
+}
+
+export const Book = sequelize.define<IBookModel, IBookAddModel>("book", {
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
     primaryKey: true,
   },
   title: Sequelize.STRING,
-  // TODO define many-to-many relationship with book & author
   summary: Sequelize.TEXT,
   isbn: Sequelize.STRING,
-  // TODO define many-to-many relationship with book & genre
 });
+
+Book.hasMany(BookInstance, {as: "instances"});
+Book.belongsToMany(Author, {through: "bookAuthor"});
+Book.hasMany(Genre, {as: "genres"});
