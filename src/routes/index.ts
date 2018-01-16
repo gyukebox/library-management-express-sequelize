@@ -1,6 +1,8 @@
-import { Request, Response } from "express";
+import { Request, Response, Router } from "express";
 
-export let index = (req: Request, res: Response) => {
+export const index: Router = Router();
+
+index.get("/", (req: Request, res: Response) => {
   res.json({
     page: {
       name: "index",
@@ -13,4 +15,4 @@ export let index = (req: Request, res: Response) => {
       genres: "/genres",
     },
   });
-};
+});
