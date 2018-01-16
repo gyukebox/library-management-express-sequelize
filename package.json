@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node dist/server.js",
-    "tsc": "node_modules/.bin/tsc -d",
+    "tsc": "node_modules/.bin/tsc",
     "test": "npx jest",
-    "lint": "tslint --fix src/**/*.ts"
+    "lint": "node_modules/.bin/tslint --fix src/**/*.ts"
   },
   "repository": {
     "type": "git",
