@@ -7,7 +7,8 @@
     "start": "node dist/server.js",
     "tsc": "node_modules/.bin/tsc",
     "test": "npx jest",
-    "lint": "node_modules/.bin/tslint --fix src/**/*.ts"
+    "eslint": "node_modules/.bin/eslint --fix dist/**/*.js",
+    "tslint": "node_modules/.bin/tslint --fix src/**/*.ts"
   },
   "repository": {
     "type": "git",
