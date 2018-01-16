@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var express_1 = require("express");
+var author_controller_1 = require("../controllers/author.controller");
+exports.authorRoute = express_1.Router();
+exports.authorRoute.get("/", author_controller_1.AuthorList);
+exports.authorRoute.get("/:id/", author_controller_1.AuthorDetail);
+exports.authorRoute.get("/create", author_controller_1.AuthorCreate.get);
+exports.authorRoute.post("/create", author_controller_1.AuthorCreate.post);
+exports.authorRoute.get("/:id/update", author_controller_1.AuthorUpdate.get);
+exports.authorRoute.post("/update", author_controller_1.AuthorUpdate.post);
+exports.authorRoute.get("/:id/delete", author_controller_1.AuthorDelete.get);
+exports.authorRoute.post("/:id/delete", author_controller_1.AuthorDelete.post);

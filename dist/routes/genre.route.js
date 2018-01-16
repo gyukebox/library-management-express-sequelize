@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var express_1 = require("express");
+var genre_controller_1 = require("../controllers/genre.controller");
+exports.genreRoute = express_1.Router();
+exports.genreRoute.get("/", genre_controller_1.GenreList);
+exports.genreRoute.get("/:id/", genre_controller_1.GenreDetail);
+exports.genreRoute.get("/create", genre_controller_1.GenreCreate.get);
+exports.genreRoute.post("/create", genre_controller_1.GenreCreate.post);
+exports.genreRoute.get("/:id/update", genre_controller_1.GenreUpdate.get);
+exports.genreRoute.post("/:id/update", genre_controller_1.GenreUpdate.post);
+exports.genreRoute.get("/:id/delete", genre_controller_1.GenreDelete.get);
+exports.genreRoute.post("/:id/delete", genre_controller_1.GenreDelete.post);
