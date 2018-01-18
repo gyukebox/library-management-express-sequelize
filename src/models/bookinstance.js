@@ -1,8 +1,7 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var Sequelize = require("sequelize");
-var server_1 = require("../server");
-exports.BookInstance = server_1.sequelize.define("bookinstance", {
+const Sequelize = require("sequelize");
+const database = require("./database");
+
+const bookInstance = database.define("bookinstance", {
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
@@ -18,3 +17,5 @@ exports.BookInstance = server_1.sequelize.define("bookinstance", {
     defaultValue: Sequelize.NOW,
   },
 });
+
+module.exports = bookInstance;

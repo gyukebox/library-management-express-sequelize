@@ -1,8 +1,7 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var express_1 = require("express");
-exports.index = express_1.Router();
-exports.index.get("/", function (req, res) {
+const express = require("express");
+const router = express.Router();
+
+router.get("/", (req, res) => {
   res.json({
     page: {
       name: "index",
@@ -16,3 +15,5 @@ exports.index.get("/", function (req, res) {
     },
   });
 });
+
+module.exports = router;

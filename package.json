@@ -4,37 +4,30 @@
   "description": "Typescript version of library management tutorial of MDN, saved to mysql",
   "main": "index.js",
   "scripts": {
-    "start": "node dist/server.js",
-    "tsc": "node_modules/.bin/tsc",
+    "start": "node server.js",
     "test": "npx jest",
-    "eslint": "node_modules/.bin/eslint --fix dist/**/*.js",
-    "tslint": "node_modules/.bin/tslint --fix src/**/*.ts"
+    "lint": "node_modules/.bin/eslint --fix src/**/*.js"
   },
   "repository": {
     "type": "git",
-    "url": "github.com/gyukebox/library-management-typescript"
+    "url": "github.com/gyukebox/library-management-express-sequelize"
   },
   "keywords": [
     "node",
     "express",
-    "sequelize",
     "typescript"
   ],
   "author": "Byeong Gyu Choi",
   "license": "MIT",
   "dependencies": {
+    "@types/sequelize": "^4.27.2",
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "mysql2": "^1.5.1",
-    "sequelize": "^4.31.0"
+    "sequelize": "^4.31.0",
+    "sequelize-cli": "^3.2.0"
   },
   "devDependencies": {
-    "@types/body-parser": "^1.16.8",
-    "@types/dotenv": "^4.0.2",
-    "@types/express": "^4.11.0",
-    "@types/sequelize": "^4.27.2",
-    "eslint": "^4.15.0",
-    "tslint": "^5.9.1",
-    "typescript": "^2.6.2"
+    "eslint": "^4.15.0"
   }
 }
